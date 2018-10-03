@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+
+/* setting up sections for players */
+#playerOne{
+    background:gray;
+    width: 50%;
+    height: 85%;
+    float: left;
+}
+
+#playerTwo{
+    background: blue;
+    width: 50%; 
+    height: 85%;
+    float: right;
+}
+
+
+
+/* ScoreBoard Styling */
+#oneScore{
+    height: 10%;
+    width: 10%;
+    background: black;
+    color: white;
+    position: relative;
+    top: 35%;
+    left: 65%;
+    
+}
+
+#twoScore{
+    height: 10%;
+    width: 10%;
+    background: black;
+    color: white;
+    position: relative;
+    top: 35%;
+    left: 25%
+
+}
+
+
+
+
+/* Header and Footer Styling */
+#mastHead{
+    width: 100%;
+    height: 100px;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 40px;
+
+
+}
+#mastBottom{
+    width: 100%;
+    height: 100px;
+    background: black;
+    color: white;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    padding: 40px;
+    
+}
+
+/* styling for rock, paper and scissors icons */
+.iconOne{
+    height: 15%;
+    width: 15%;
+    position: relative;
+    left:25%;
+}
+.iconTwo{
+    height: 15%;
+    width: 15%;
+    position: relative;
+    left: 55%;
+
+}
+
+
+
+img{
+    display: block;
+    margin: 20px;
+
+}
