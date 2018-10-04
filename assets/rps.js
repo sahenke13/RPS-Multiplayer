@@ -30,6 +30,7 @@ $(document).ready(function(){
 var oneChoice = $(".iconOne").on("click", function(){
   oneChoice = $(this).attr("id");
   hasPicked = true;
+  $("#playerOnePrompt").hide();
   database.ref("playerOne").set({
     onePick: oneChoice,
     oneState: hasPicked,
@@ -41,6 +42,7 @@ var oneChoice = $(".iconOne").on("click", function(){
 var twoChoice = $(".iconTwo").on("click", function(){
   twoChoice = $(this).attr("id");
   hasPicked = true;
+  $("#playerTwoPrompt").hide();
   database.ref("playerTwo").set({
     twoPick: twoChoice,
     twoState: hasPicked,
@@ -53,6 +55,8 @@ var twoChoice = $(".iconTwo").on("click", function(){
 //function to hide banner
 function bannerhide(){
   bannerText.hide();
+  $("#playerTwoPrompt").show();
+  $("#playerOnePrompt").show();
 }
 
 //function to change states of players  
