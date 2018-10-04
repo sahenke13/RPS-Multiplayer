@@ -11,6 +11,12 @@ body{
     width: 50%;
     height: 85%;
     float: left;
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+
 }
 
 #playerTwo{
@@ -18,6 +24,11 @@ body{
     width: 50%; 
     height: 85%;
     float: right;
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
 }
 
 
@@ -25,26 +36,43 @@ body{
 /* ScoreBoard Styling */
 #oneScore{
     height: 10%;
-    width: 10%;
-    background: black;
-    color: white;
+    width: 16%;
+    background: white;
+    color: black;
     position: relative;
     top: 35%;
     left: 65%;
-    
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 10px;
+    border: 4px solid black;
 }
 
 #twoScore{
     height: 10%;
-    width: 10%;
-    background: black;
-    color: white;
+    width: 16%;
+    background: white;
+    color: black;
     position: relative;
     top: 35%;
-    left: 25%
+    left: 25%;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 10px;
+    border: 4px solid black;
 
 }
 
+#resetButton{
+    position: absolute;
+    width: 80px;
+    color: white;
+    background: red;
+    height: 30px;
+    top: 80%;
+    right: 47.5%;
+    border-radius: 20px;
+}
 
 
 
@@ -55,7 +83,9 @@ body{
     background: black;
     color: white;
     text-align: center;
-    padding: 40px;
+    padding: 15px;
+    font-size: 3em;
+    font-family: 'Lobster', cursive;
 
 
 }
@@ -77,12 +107,16 @@ body{
     width: 15%;
     position: relative;
     left:25%;
+    border-radius: 10px;
+    border: 4px solid black;
 }
 .iconTwo{
     height: 15%;
     width: 15%;
     position: relative;
     left: 55%;
+    border-radius: 10px;
+    border: 4px solid black;
 
 }
 
@@ -91,5 +125,29 @@ body{
 img{
     display: block;
     margin: 20px;
+
+}
+
+/* psuedo code for fun */
+.iconTwo:hover {
+    border: 4px solid red;
+}
+.iconOne:hover {
+    border: 4px solid red;
+}
+
+/* win or lose banner */
+#banner{
+    height: 100px;
+    width: 500px;
+    background: black;
+    color: white;
+    position: absolute;
+    text-align: center;
+    padding: 30px;
+    font-size: 2em;
+    top: 30%;
+    right: 22.5%;
+
 
 }
