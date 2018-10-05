@@ -82,7 +82,6 @@ function resetState(){
 $("#chatSubmitOne").on("click",function(event){
 event.preventDefault();
 playerOneChat = $("#chatOne").val();
-player = "Player One: ";
  console.log(playerOneChat);
  
  database.ref("chat").push({
@@ -95,7 +94,6 @@ $("#chatOne").val("");
 $("#chatSubmitTwo").on("click",function(event){
   event.preventDefault();
   playerTwoChat = $("#chatTwo").val();
-  player = "Player Two: ";
  console.log(playerTwoChat);
 
  database.ref("chat").push({
