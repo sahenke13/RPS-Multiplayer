@@ -37,6 +37,7 @@ var oneChoice = $(".iconOne").on("click", function(){
     onePick: oneChoice,
     oneState: hasPicked,
     scoreOne: oneScore
+   
   });
   // console.log(stateOne)
 });
@@ -44,7 +45,7 @@ var oneChoice = $(".iconOne").on("click", function(){
 var twoChoice = $(".iconTwo").on("click", function(){
   twoChoice = $(this).attr("id");
   hasPicked = true;
-  $("#playerTwoPrompt").hide();
+  
   database.ref("playerTwo").set({
     twoPick: twoChoice,
     twoState: hasPicked,
@@ -83,9 +84,11 @@ event.preventDefault();
 playerOneChat = $("#chatOne").val();
 player = "Player One: ";
  console.log(playerOneChat);
+ 
  database.ref("chat").push({
   playerChat: playerOneChat
 });
+
 $("#chatOne").val("");
 })
 
@@ -94,9 +97,11 @@ $("#chatSubmitTwo").on("click",function(event){
   playerTwoChat = $("#chatTwo").val();
   player = "Player Two: ";
  console.log(playerTwoChat);
+
  database.ref("chat").push({
   playerChat: playerTwoChat
 }); 
+
 $("#chatTwo").val("");
 })
 
@@ -105,7 +110,7 @@ database.ref("chat").on("child_added", function(snapshotchat){
   console.log(snap);
 
   var newChat = $("<p>");
-  newChat.text(player + snap);
+  newChat.text(snap);
   newChat.attr("id","chatDialogue");
 
   $("#chatBox").prepend(newChat);
@@ -202,7 +207,12 @@ database.ref().on("value", function(snapshot) {
   playerOneScore.text(newScoreOne);
   playerTwoScore.text(newScoreTwo);
 
-  if (oneState === true && twoState === true){
+  if(oneState===true && twoState ===false){
+    $("#playerOnePrompt").hide();
+  }
+  else if(oneState===false && twoState ===true){
+    $("#playerTwoPrompt").hide();
+  }else if (oneState === true && twoState === true){
    
     if(oneChoice === twoChoice){
       playersDraw();
