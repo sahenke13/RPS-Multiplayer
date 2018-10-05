@@ -9,7 +9,11 @@ $(document).ready(function(){
   var oneState;
   var twoState;
   var hasPicked;
-  
+  var playerOneChat = "";
+  var playerTwoChat = "";
+  var player;
+
+
   // Initialize Firebase and store firebase.database() in a var
   var config = {
     apiKey: "AIzaSyALk3J0LXvUj3OfH35VKNBt_fIAedLJTO8",
@@ -23,8 +27,6 @@ $(document).ready(function(){
   firebase.initializeApp(config);
 
   var database = firebase.database();
-
-
 
   //record player one and player two choice
 var oneChoice = $(".iconOne").on("click", function(){
@@ -73,6 +75,46 @@ function resetState(){
   });
  
 };
+
+//chat click function
+
+$("#chatSubmitOne").on("click",function(event){
+event.preventDefault();
+playerOneChat = $("#chatOne").val();
+player = "Player One: ";
+ console.log(playerOneChat);
+ database.ref("chat").push({
+  playerChat: playerOneChat
+});
+$("#chatOne").val("");
+})
+
+$("#chatSubmitTwo").on("click",function(event){
+  event.preventDefault();
+  playerTwoChat = $("#chatTwo").val();
+  player = "Player Two: ";
+ console.log(playerTwoChat);
+ database.ref("chat").push({
+  playerChat: playerTwoChat
+}); 
+$("#chatTwo").val("");
+})
+
+database.ref("chat").on("child_added", function(snapshotchat){
+  var snap = snapshotchat.val().playerChat;
+  console.log(snap);
+
+  var newChat = $("<p>");
+  newChat.text(player + snap);
+  newChat.attr("id","chatDialogue");
+
+  $("#chatBox").prepend(newChat);
+
+
+
+}, function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+});
 
 //Make a function for playerOne winning and one for playertwo
 function playOneWin(){
@@ -131,6 +173,7 @@ function playersDraw(){
 $("#resetButton").on("click", function(){
   oneScore = 0;
   twoScore = 0;
+  snapshotchat.val().playerChat.delete();
   database.ref("playerOne").set({
     ScoreOne: oneScore,
   })
